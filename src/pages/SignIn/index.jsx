@@ -16,7 +16,7 @@ export function SignIn() {
         <Input type="text" placeholder="Email" icon={BiMailSend} />
         <Input type="password" placeholder="Senha" icon={BiLockAlt} />
         <Button title="Entrar" isActive />
-        <Link to="/register">Criar conta</Link>
+        <Link className="link" to="/register">Criar conta</Link>
       </Form>
       <Background />
     </Container>

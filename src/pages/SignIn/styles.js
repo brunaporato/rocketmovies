@@ -36,7 +36,7 @@ export const Form = styled.form`
     margin-bottom: 4.8rem;
   }
 
-  > button {
+  > a {
     height: 5.6rem;
     display: flex;
     justify-content: center;
@@ -44,7 +44,7 @@ export const Form = styled.form`
     margin-top: 2.4rem;
   }
 
-  a {
+  .link {
     text-align: center;
     color: ${({theme}) => theme.colors.pink};
     margin-top: 4.2rem;
