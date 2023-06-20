@@ -6,10 +6,19 @@ import { Tags } from "../../components/Tags";
 
 import { Link } from "react-router-dom";
 
+import userNullAvatar from '../../assets/user-nullAvatar.jpg';
+import { useAuth } from "../../hooks/auth";
+import { api } from '../../services/api';
 
-import { BiLeftArrowAlt, BiTime } from 'react-icons/bi'
+
+import { BiLeftArrowAlt, BiTime } from 'react-icons/bi';
 
 export function Preview() {
+  const { user } = useAuth();
+
+  const avatarUrl = user.avatar ? `${api.defaults.baseURL}/files/${user.avatar}` : userNullAvatar;
+
+
   return(
     <Container>
       <Header />
@@ -20,8 +29,8 @@ export function Preview() {
           <Rating bigSize rate='4'/>
         </div>
         <div className="signed">
-          <img src="https://github.com/brunaporato.png" alt="Writer's picture" />
-          <p>Por Bruna Porato</p>
+          <img src={avatarUrl} alt="Writer's picture" />
+          <p>Por {user.name}</p>
           <BiTime />
           <p>23/05/22 às 08:00</p>
         </div>
