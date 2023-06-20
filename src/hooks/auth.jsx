@@ -15,7 +15,7 @@ function AuthProvider({ children }) {
       localStorage.setItem("@rocketmovies:user", JSON.stringify(user));
       localStorage.setItem("@rocketmovies:token", token);
 
-      api.defaults.headers.authorization = `Bearer ${token}`;
+      api.defaults.headers.common['Authorization'] = `Bearer ${token}`;
       setData({ user, token })
 
     } catch(error) {
@@ -23,7 +23,32 @@ function AuthProvider({ children }) {
       if(error.response) {
         alert(error.response.data.message);
       } else { 
-        alert("Não foi possível entrar");
+        alert("Something went wrong");
+      }
+    }
+  }
+
+  function signOut(){
+    localStorage.removeItem("@rocketmovies:token");
+    localStorage.removeItem("@rocketmovies:user");
+
+    setData({});
+  }
+
+  async function updateProfile({ user }) {
+    try {
+      const {password, old_password, ...userData} = user;
+      await api.put("/users", user);
+      localStorage.setItem("@rocketmovies:user", JSON.stringify(userData));
+
+      setData({ user, token: data.token });
+      alert("Profile updated ;)")
+    } catch(error) {
+
+      if(error.response) {
+        alert(error.response.data.message);
+      } else { 
+        alert("Something went wrong");
       }
     }
   }
@@ -33,7 +58,7 @@ function AuthProvider({ children }) {
     const user = localStorage.getItem("@rocketmovies:user");
 
     if(token && user) {
-      api.defaults.headers.authorization = `Bearer ${token}`;
+      api.defaults.headers.common['Authorization'] = `Bearer ${token}`;
 
       setData({
         token,
@@ -43,7 +68,12 @@ function AuthProvider({ children }) {
   }, [])
 
   return (
-    <AuthContext.Provider value={{ signIn, user: data.user }}>
+    <AuthContext.Provider value={{
+      signIn,
+      signOut,
+      updateProfile,
+      user: data.user,
+      }}>
       {children}
     </AuthContext.Provider>
   )
