@@ -63,7 +63,7 @@ export function Register() {
 
         <Button
           title="Cadastrar"
-          isActive
+          isactive
           onClick={handleRegister}
         />
 

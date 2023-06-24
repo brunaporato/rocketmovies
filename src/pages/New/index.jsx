@@ -105,7 +105,7 @@ export function New() {
       <footer>
         <Button title="Excluir filme" />
         <Button
-          isActive
+          isactive
           title="Salvar alterações"
           onClick={handleNewNote}
         />

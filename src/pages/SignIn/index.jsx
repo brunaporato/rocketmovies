@@ -41,7 +41,7 @@ export function SignIn() {
 
         <Button
           title="Entrar"
-          isActive
+          isactive
           onClick={handleSignIn}
         />
         <Link className="link" to="/register">Criar conta</Link>

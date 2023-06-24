@@ -10,8 +10,8 @@ export const Container = styled(Link)`
   padding: 2.4rem 3.2rem;
   gap: .8rem;
   border-radius: .8rem;
-  background: ${({theme, isActive}) => isActive ? theme.colors.pink : theme.colors.dark};
-  color: ${({theme, isActive}) => isActive ? theme.colors.background_100 : theme.colors.pink};
+  background: ${({theme, isactive}) => isactive ? theme.colors.pink : theme.colors.dark};
+  color: ${({theme, isactive}) => isactive ? theme.colors.background_100 : theme.colors.pink};
   font-weight: 400;
   border: none;
 

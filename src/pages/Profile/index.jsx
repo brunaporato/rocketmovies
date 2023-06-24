@@ -93,7 +93,7 @@ export function Profile() {
             onChange={e => setNewPassword(e.target.value)}
           />
         </div>
-        <Button id="Salvar" title="Salvar" isActive onClick={handleUpdate} />
+        <Button id="Salvar" title="Salvar" isactive onClick={handleUpdate} />
       </Form>
     </Container>
   )
