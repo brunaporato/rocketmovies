@@ -6,7 +6,7 @@ export function Button({icon: Icon, isactive, loading = false, title, ...rest}) 
     <Container
     type="button"
     disabled = {loading}
-    isactive = {String(isactive)}
+    isactive = {isactive}
     {...rest}>
         {Icon && <Icon size={20} />}
         { loading ? 'Carregando...' : title }

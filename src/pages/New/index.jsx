@@ -103,7 +103,10 @@ export function New() {
         </TagWrapper>
       </div>
       <footer>
-        <Button title="Excluir filme" />
+        <Button
+          title="Descartar alterações"
+          to="/"
+        />
         <Button
           isactive
           title="Salvar alterações"

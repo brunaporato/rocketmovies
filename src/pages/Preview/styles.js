@@ -10,13 +10,13 @@ export const Container = styled.div`
   "link"
   "content";
 
-  a {
+  > a {
     grid-area: link;
     display: flex;
     align-items: center;
     gap: .8rem;
     color: ${({theme}) => theme.colors.pink};
-    margin-left: 12.3rem;
+    margin: 0 12.3rem;
   }
 
   main {
@@ -65,6 +65,16 @@ export const Container = styled.div`
       line-height: 2.5rem;
       text-align: justify;
     }
+
+    .delete {
+      display: flex;
+      align-items: center;
+      justify-content: right;
+      color: ${({theme}) => theme.colors.gray_100};
+      gap: .3rem;
+      margin-top: 3rem;
+    }
+
 
     &::-webkit-scrollbar-track {
       background-color: ${({theme}) => theme.colors.background_100};
