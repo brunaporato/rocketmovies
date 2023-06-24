@@ -10,7 +10,7 @@ import { api } from '../../services/api'
 import { Input } from '../../components/Input'
 import { Button } from '../../components/Button'
 
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 import { BiLeftArrowAlt, BiCamera, BiUser, BiMailSend, BiLockAlt} from 'react-icons/bi';
 
@@ -27,6 +27,8 @@ export function Profile() {
   const [avatar, setAvatar] = useState(avatarUrl);
   const [avatarFile, setAvatarFile] = useState(null);
 
+  const navigate = useNavigate();
+
   async function handleUpdate() {
     const updated = {
       name,
@@ -38,6 +40,7 @@ export function Profile() {
     const userUpdated = Object.assign(user, updated);
 
     await updateProfile({ user: userUpdated, avatarFile });
+    navigate("/");
   }
 
   function handleChangeAvatar(e) {
@@ -51,7 +54,7 @@ export function Profile() {
   return(
     <Container>
       <header>
-      <Link to="/"> <BiLeftArrowAlt /> Voltar</Link>
+      <Link to="/"> <BiLeftArrowAlt /> Back</Link>
       </header>
        <Avatar>
           <img src={avatar} alt="User's profile picture" />
@@ -81,19 +84,19 @@ export function Profile() {
         <div>
           <Input
             type="password"
-            placeholder="Senha atual"
+            placeholder="Current password"
             icon={BiLockAlt}
             onChange={e => setCurrentPassword(e.target.value)}
           />
 
           <Input
             type="password"
-            placeholder="Nova senha"
+            placeholder="New password"
             icon={BiLockAlt}
             onChange={e => setNewPassword(e.target.value)}
           />
         </div>
-        <Button id="Salvar" title="Salvar" isactive onClick={handleUpdate} />
+        <Button id="Salvar" title="Save Profile" isactive onClick={handleUpdate} />
       </Form>
     </Container>
   )

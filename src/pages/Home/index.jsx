@@ -28,13 +28,13 @@ export function Home() {
       <Header>
         <input
           type="text"
-          placeholder="Pesquisar pelo título"
+          placeholder="Search by title"
           onChange={(e) => setSearch(e.target.value)}
         />
       </Header>
       <div className="title">
-        <h1>Meus filmes</h1>
-        <Button title="Adicionar filme" isactive icon={FiPlus} to="/new"/>
+        <h1>My Movies</h1>
+        <Button title="Add Movie" isactive icon={FiPlus} to="/new"/>
       </div>
       <main>
         <Content>

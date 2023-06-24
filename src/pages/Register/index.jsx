@@ -18,19 +18,19 @@ export function Register() {
 
   function handleRegister() {
     if(!name || !email || !password) {
-      return alert("Preencha todos os campos!");
+      return alert("You need to fill the requirements");
     }
 
     api.post("/users", { name, email, password })
     .then(() => {
-      alert("Usuário cadastrado com sucesso!");
+      alert("New user created :)");
       navigate("/");
     })
     .catch(error => {
       if(error.response) {
         alert(error.response.data.message);
       } else {
-        alert("Não foi possível cadastrar.");
+        alert("Something went wrong :(");
       }
     });
   }
@@ -39,11 +39,11 @@ export function Register() {
     <Container>
       <Form>
         <h1>RocketMovies</h1>
-        <p>Aplicação para acompanhar tudo que assistir</p>
-        <h2>Crie sua conta</h2>
+        <p>Application to track every movie you watch</p>
+        <h2>Register for free</h2>
         <Input
           type="text"
-          placeholder="Nome"
+          placeholder="Name"
           icon={BiUser}
           onChange={e => setName(e.target.value)}
         />
@@ -56,18 +56,18 @@ export function Register() {
         />
         <Input
           type="password"
-          placeholder="Senha"
+          placeholder="Password"
           icon={BiLockAlt} 
           onChange={e => setPassword(e.target.value)}
         />
 
         <Button
-          title="Cadastrar"
+          title="Sign Up"
           isactive
           onClick={handleRegister}
         />
 
-        <Link className="link" to="/"><BiLeftArrowAlt /> Voltar para o login</Link>
+        <Link className="link" to="/"><BiLeftArrowAlt /> Back to sign in</Link>
       </Form>
       <Background />
     </Container>

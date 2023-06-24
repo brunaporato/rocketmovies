@@ -60,29 +60,29 @@ export function New() {
     <Container>
       <Header />
       <div className="input-new">
-      <Link to="/"> <BiLeftArrowAlt /> Voltar</Link>
-        <h1>Novo filme</h1>
+      <Link to="/"> <BiLeftArrowAlt /> Back</Link>
+        <h1>New Movie</h1>
         <div className="name-rate">
           <Input
             type="text"
-            placeholder="Título"
+            placeholder="Title"
             onChange={e => setTitle(e.target.value)}
           />
 
           <Input
             type="text"
-            placeholder="Nota (de 0 a 5)"
+            placeholder="Rate (from 0 to 5)"
             onChange={e => setRate(e.target.value)}
           />
         </div>
 
         <textarea
-          placeholder="Observações"
+          placeholder="Description"
           onChange={e => setDescription(e.target.value)}
           />
 
       <div className="tags">
-        <p>Marcadores</p>
+        <p>Tags</p>
         <TagWrapper>
           {
             tag.map((tag, index) => (
@@ -104,12 +104,12 @@ export function New() {
       </div>
       <footer>
         <Button
-          title="Descartar alterações"
+          title="Discard Movie"
           to="/"
         />
         <Button
           isactive
-          title="Salvar alterações"
+          title="Save Movie"
           onClick={handleNewNote}
         />
       </footer>

@@ -22,8 +22,8 @@ export function SignIn() {
     <Container>
       <Form>
         <h1>RocketMovies</h1>
-        <p>Aplicação para acompanhar tudo que assistir</p>
-        <h2>Faça seu login</h2>
+        <p>Application to track every movie you watch</p>
+        <h2>Have an account?</h2>
 
         <Input
           type="text"
@@ -34,17 +34,17 @@ export function SignIn() {
 
         <Input
           type="password"
-          placeholder="Senha"
+          placeholder="Password"
           icon={BiLockAlt}
           onChange={e => setPassword(e.target.value)}
         />
 
         <Button
-          title="Entrar"
+          title="Sign In"
           isactive
           onClick={handleSignIn}
         />
-        <Link className="link" to="/register">Criar conta</Link>
+        <Link className="link" to="/register">Register new user</Link>
       </Form>
       <Background />
     </Container>

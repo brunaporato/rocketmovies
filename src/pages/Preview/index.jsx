@@ -63,7 +63,7 @@ export function Preview() {
           </div>
           <div className="signed">
             <img src={avatarUrl} alt="Writer's picture" />
-            <p>Por {user.name}</p>
+            <p>Written by <strong>{user.name}</strong></p>
             <BiTime />
             <p>{data.updated_at}</p>
           </div>

@@ -26,7 +26,7 @@ export function Header({children}) {
       <User>
         <div>
           <h2>{user.name}</h2>
-          <a onClick={handleSignOut}>sair</a>
+          <a onClick={handleSignOut}>sign out</a>
         </div>
         <Link to="/profile">
           <img src={avatarUrl} alt="User's image" />
